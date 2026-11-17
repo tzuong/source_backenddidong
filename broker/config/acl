@@ -1,0 +1,20 @@
+# Mobile app: read sensors/state and send commands.
+user mobile
+topic read smartoffice/room1/telemetry
+topic read smartoffice/room1/state/#
+topic read smartoffice/room1/status
+topic write smartoffice/room1/cmd/#
+
+# Backend: status, telemetry, state, and command API.
+user backend
+topic read smartoffice/room1/telemetry
+topic read smartoffice/room1/state/#
+topic read smartoffice/room1/status
+topic write smartoffice/room1/cmd/#
+
+# Simulated ESP32: read commands, publish measurements and confirmations.
+user simulator
+topic read smartoffice/room1/cmd/#
+topic write smartoffice/room1/telemetry
+topic write smartoffice/room1/state/#
+topic write smartoffice/room1/status

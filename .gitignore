@@ -1,0 +1,5 @@
+node_modules/
+.env
+broker/config/passwd
+broker/data/
+*.log

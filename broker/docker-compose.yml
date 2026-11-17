@@ -1,0 +1,13 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0.22
+    container_name: smartoffice-mqtt-broker
+    restart: unless-stopped
+    ports:
+      - "1883:1883"   # Node.js / ESP32 (MQTT/TCP)
+      - "9001:9001"   # React Native (MQTT over WebSocket)
+    volumes:
+      - ./config:/mosquitto/config
+      - mosquitto_data:/mosquitto/data
+volumes:
+  mosquitto_data:
